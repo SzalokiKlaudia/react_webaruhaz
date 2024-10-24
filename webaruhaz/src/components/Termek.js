@@ -5,7 +5,10 @@ import './Termek.css'
 function Termek(props) {
 
     function kattKosarTermek(){
-        
+        console.log("katt termék",props.index)
+        props.kattKosar(props.kartya,props.index)//átadtam a termék objektzumot amire kattintottam, és az indexét is a szülőnek
+        //fontos hogy a szülőelem fgv-ét hívd
+
     }
 
   return (
@@ -27,8 +30,11 @@ function Termek(props) {
                     </p>
                 </div>
                 <div className="kosar-elemek d-flex justify-content-between">
-                                                <button className="btn">Kosárba</button>
-                                                <h5 className="price">Ár: {props.kartya.price} Ft 
+                                                <button className="btn" onClick={()=>{kattKosarTermek()}}>
+                                                    Kosárba
+                                                </button>
+                                                <h5 className="price">
+                                                    Ár: {props.kartya.price} Ft 
 
                                                 </h5>
                                             

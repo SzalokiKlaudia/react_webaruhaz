@@ -12,7 +12,8 @@ function App() {
   const [aktivE,setAktivE] =useState(false)//alapjáraton false amit settel állítgatunk
 
 
-  const kattKosarAside = () =>{ //toggle fgv, kezeli  a kattintást, és setteli az értékeket a cart-iconon
+  function kattKosarAside(){ //toggle fgv, kezeli  a kattintást, és setteli az értékeket a cart-iconon
+    //itt megjelenítjük a kosár felületét
 
     if(aktivE){
       setAktivE(false)
@@ -31,6 +32,35 @@ function App() {
       asideClass += " " + "active" //itt adjuk hozzá az active osztályt
   }
 
+  
+  const [kosarLista,setKosarLista] = useState([])//alapértelmezetten üres mert nincs benne termék
+
+
+  function katt(adat,index){//végül itt kapja meg a szülő a kattintott terméket és indexét, hogy tovább adhassuk tárolásra
+    //itt a termékeket átadjuk a kosárba
+
+    console.log("App")
+    console.log(adat,index)
+
+    const objektum= {
+      termek:adat,
+      index: index
+    }
+
+    const cKosarLista=[...kosarLista] //csináljunk másolatot a listáról és azt setteljük
+
+    cKosarLista.push(objektum)//a másolt listába rakjuk az adatokat
+  
+    setKosarLista(cKosarLista)//itt frissítjük az eredeti listát a másolattal
+  
+   //console.log(cKosarLista)
+   //console.log(kosarLista)
+   
+
+   
+
+
+  }
 
 
   return (
@@ -62,7 +92,7 @@ function App() {
       <article>
         <div className="kontener mb-5">
             <div className="galeria row">
-              < Termekek lista={products}/>
+              < Termekek lista={products} katt={katt}/>
 
             </div>
 
@@ -71,7 +101,7 @@ function App() {
       </article>
 
        <aside className={asideClass} id="kosar-tartalom d-flex"> 
-        <Aside/>
+        <Aside kosarLista={kosarLista}/>
 
 
 
