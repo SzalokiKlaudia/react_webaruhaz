@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+}
+
+.nav-link:hover{
+  font-weight: 700; 
+}
+
+#cart-icon{
+  position: absolute; /*ez nagyon fontos a láthatóság miatt*/
+  top: 10px; /*pozícionálni kell*/
+  right: 10px;
+  margin: 1rem 2.5rem 0 0;
+  font-size: 1.5rem;
+  /* width: 1.9rem; */
+  cursor: pointer;
+  z-index: 2;
+}
+
+#cart-icon:hover{
+  color: #5fc7ec;
+  transition: color 0.6s ease;
+
+}
+
+.custom{
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Alsó box shadow */
+  border: 1px solid transparent;
+
+ 
+}
+
+
+
+
+
+.App-header {
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
