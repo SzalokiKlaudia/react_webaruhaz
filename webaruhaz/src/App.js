@@ -2,8 +2,37 @@ import logo from './logo.svg';
 import './App.css';
 import products from './components/adatok';
 import Termekek from './components/Termekek';
+import Aside from './components/Aside';
+import { useState } from 'react';
+
 
 function App() {
+
+  //kell a useState az oldalsáv megjelenítéséhez hogy kezelje az állapotát, és eszerint kapjon active osztályt kattra, majd kattra vegye le
+  const [aktivE,setAktivE] =useState(false)//alapjáraton false amit settel állítgatunk
+
+
+  const kattKosarAside = () =>{ //toggle fgv, kezeli  a kattintást, és setteli az értékeket a cart-iconon
+
+    if(aktivE){
+      setAktivE(false)
+    }
+    else{
+
+      setAktivE(true)
+    }
+
+
+  }
+
+  let asideClass = "aside"
+
+  if(aktivE){
+      asideClass += " " + "active" //itt adjuk hozzá az active osztályt
+  }
+
+
+
   return (
     <div className="App">
       <header>
@@ -22,7 +51,9 @@ function App() {
                     
                   </div>
                   <div className ="d-flex flex-row-reverse">
-                      <i className="fa-solid fa-cart-shopping fixed-top-right" id="cart-icon"></i>
+                      <i className="fa-solid fa-cart-shopping fixed-top-right" id="cart-icon" onClick={()=>{kattKosarAside()}}>
+
+                      </i>
                 </div>
           </div>
 
@@ -39,10 +70,12 @@ function App() {
 
       </article>
 
-      <aside>
+       <aside className={asideClass} id="kosar-tartalom d-flex"> 
+        <Aside/>
 
 
-      </aside>
+
+     </aside> 
     </div>
   );
 }

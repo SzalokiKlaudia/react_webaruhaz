@@ -3,6 +3,11 @@ import React from 'react'
 import './Termek.css'
 
 function Termek(props) {
+
+    function kattKosarTermek(){
+        
+    }
+
   return (
   
   
